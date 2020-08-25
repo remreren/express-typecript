@@ -1,18 +1,25 @@
 import express from "express";
 import http, { request } from "http";
 import morgan from "morgan";
+import bodyParser from "body-parser";
 import config from "../config.js";
 
 import home from "./routes/index";
+import userCreate from "./routes/user/create";
+
+const db = require("./data/db");
 
 const app: express.Application = express();
 
 const server: http.Server = http.createServer(app);
 
 app.use(morgan("dev"));
+app.use(bodyParser.json({ limit: "2mb" }));
+app.use(bodyParser.urlencoded({ extended: true, limit: "2mb" }));
 app.set("port", config.PORT || 3000);
 
 app.use(home);
+app.use(userCreate);
 
 app.use((req, res, next) => {
     res.statusCode = 404;

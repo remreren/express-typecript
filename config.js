@@ -13,7 +13,8 @@ if (process.env.NODE_ENV !== "production") {
 
 const conf = {
     PORT: process.env.PORT,
-    NODE_ENV: process.env.NODE_ENV
+    NODE_ENV: process.env.NODE_ENV,
+    MONGODB_URI: process.env.MONGODB_URI,
 }
 
 module.exports = conf;
