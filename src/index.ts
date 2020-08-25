@@ -5,7 +5,9 @@ import bodyParser from "body-parser";
 import config from "../config.js";
 
 import home from "./routes/index";
-import userCreate from "./routes/user/create";
+import createUser from "./routes/user/create";
+import getUser from "./routes/user/get";
+import createTodo from "./routes/todo/create";
 
 const db = require("./data/db");
 
@@ -19,7 +21,9 @@ app.use(bodyParser.urlencoded({ extended: true, limit: "2mb" }));
 app.set("port", config.PORT || 3000);
 
 app.use(home);
-app.use(userCreate);
+app.use(createUser);
+app.use(getUser);
+app.use(createTodo);
 
 app.use((req, res, next) => {
     res.statusCode = 404;

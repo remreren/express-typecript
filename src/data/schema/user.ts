@@ -1,6 +1,5 @@
 import { Schema } from "mongoose";
 import timestamps from "mongoose-timestamp";
-import TodoSchema from "./todo";
 
 const UserSchema: Schema = new Schema(
     {

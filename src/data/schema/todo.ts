@@ -6,8 +6,6 @@ const TodoSchema: Schema = new Schema(
         title: {
             type: String,
             trim: true,
-            lowercase: true,
-            unique: true,
             required: true
         },
         content: {
@@ -22,7 +20,7 @@ const TodoSchema: Schema = new Schema(
         }
     },
     {
-        collection: "users"
+        collection: "todos"
     }
 );
 
